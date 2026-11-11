@@ -1,0 +1,140 @@
+<mxfile host="app.diagrams.net" modified="2026-11-07T14:41:00.000Z" agent="Antigravity-DBMS" version="21.0.0" type="device">
+  <diagram id="stayease_er_diagram" name="StayEase ER Diagram (3NF)">
+    <mxGraphModel dx="1420" dy="880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title Block -->
+        <mxCell id="title_block" value="&lt;b&gt;STAYEASE – HOTEL RESERVATION MANAGEMENT SYSTEM&lt;/b&gt;&lt;br&gt;Entity-Relationship Diagram (Normalized 3NF Schema &amp; Verified Cardinalities)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#0f172a;fontColor=#ffffff;fontSize=16;align=center;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1620" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Legend Block -->
+        <mxCell id="legend_box" value="&lt;b&gt;ER DIAGRAM NOTATION &amp; LEGEND&lt;/b&gt;&lt;br&gt;&lt;b&gt;[PK]&lt;/b&gt; Primary Key | &lt;b&gt;[FK]&lt;/b&gt; Foreign Key | &lt;b&gt;[CK]&lt;/b&gt; Candidate Key&lt;br&gt;Cardinality: &lt;b&gt;1 to 0..N&lt;/b&gt; (One to Many Optional) | &lt;b&gt;1 to 0..1&lt;/b&gt; (One to One Optional)&lt;br&gt;&lt;i&gt;*Controlled Redundancy: rooms(hotel_id) backed by composite FK for UNIQUE(hotel_id, room_number)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontColor=#334155;fontSize=11;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="85" width="460" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: HOTELS ================= -->
+        <mxCell id="ent_hotels" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;HOTELS&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;hotel_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;name (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;description (TEXT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;address (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;city (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;state (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;postal_code (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;star_rating (INT CHECK 1..5)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;is_active (BOOLEAN)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;created_at (TIMESTAMPTZ)&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="85" width="220" height="235" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: ROOM_TYPES ================= -->
+        <mxCell id="ent_room_types" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;ROOM_TYPES&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;room_type_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#f1f5f9;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;FK,CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;hotel_id (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;type_name (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;base_price_per_night (NUMERIC)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;max_occupancy (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;is_active (BOOLEAN)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;created_at (TIMESTAMPTZ)&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="90" width="230" height="185" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: AMENITIES ================= -->
+        <mxCell id="ent_amenities" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;AMENITIES&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;amenity_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;name (VARCHAR UNIQUE)&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="110" width="190" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: ROOM_TYPE_AMENITIES ================= -->
+        <mxCell id="ent_rta" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;ROOM_TYPE_AMENITIES&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK, FK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;room_type_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK, FK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;amenity_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="105" width="190" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: ROOMS ================= -->
+        <mxCell id="ent_rooms" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;ROOMS&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;room_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#fef3c7;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;FK,CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;hotel_id* (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#f1f5f9;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;room_type_id (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;room_number (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;floor_number (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;status (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="370" width="230" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: USERS ================= -->
+        <mxCell id="ent_users" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;USERS&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;user_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;full_name (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;email (VARCHAR UNIQUE)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;password_hash (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;phone (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;role (CHECK customer/mgr/admin)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;is_active (BOOLEAN)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;created_at (TIMESTAMPTZ)&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="220" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: RESERVATIONS ================= -->
+        <mxCell id="ent_reservations" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;RESERVATIONS&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;reservation_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#f1f5f9;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;user_id (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#f1f5f9;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;room_id (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;check_in_date (DATE)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;check_out_date (DATE)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;number_of_guests (INT &amp;gt; 0)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;price_per_night (SNAPSHOT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;total_amount (NUMERIC &amp;gt;= 0)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;booking_status (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;cancellation_reason (TEXT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;created_at (TIMESTAMPTZ)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#fee2e2;&quot;&gt;&lt;td colspan=&quot;2&quot; style=&quot;padding:4px; font-size:10px;&quot;&gt;&lt;i&gt;Exclusion: btree_gist (no overlap)&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="370" width="260" height="270" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: PAYMENTS ================= -->
+        <mxCell id="ent_payments" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;PAYMENTS&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;payment_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#f1f5f9;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;FK,CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;reservation_id (INT UNIQUE)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;amount (NUMERIC &amp;gt;= 0)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;payment_method (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;payment_status (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;transaction_reference (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;refund_reference (VARCHAR)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;paid_at (TIMESTAMPTZ)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;refunded_at (TIMESTAMPTZ)&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="750" width="240" height="225" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ENTITY: REVIEWS ================= -->
+        <mxCell id="ent_reviews" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-size:11px;&quot;&gt;&#10;  &lt;tr style=&quot;background-color:#0284c7; color:#ffffff;&quot;&gt;&#10;    &lt;th colspan=&quot;2&quot; style=&quot;padding:6px; text-align:center;&quot;&gt;&lt;b&gt;REVIEWS&lt;/b&gt;&lt;/th&gt;&#10;  &lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#e0f2fe;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;u&gt;review_id&lt;/u&gt; (INT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr style=&quot;background-color:#f1f5f9;&quot;&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;b&gt;FK,CK&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;reservation_id (INT UNIQUE)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;rating (INT CHECK 1..5)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;comment (TEXT)&lt;/td&gt;&lt;/tr&gt;&#10;  &lt;tr&gt;&lt;td style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding:4px;&quot;&gt;created_at (TIMESTAMPTZ)&lt;/td&gt;&lt;/tr&gt;&#10;&lt;/table&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0284c7;strokeWidth=2;align=left;overflow=fill;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="750" width="220" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- ================= RELATIONSHIP EDGES & CARDINALITIES ================= -->
+
+        <!-- 1. HOTELS (1) to ROOM_TYPES (0..N) -->
+        <mxCell id="edge_hotels_roomtypes" value="offers&lt;br&gt;[1 to 0..N]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284c7;strokeWidth=2;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_hotels" target="ent_room_types">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 2. ROOM_TYPES (1) to ROOMS (0..N) -->
+        <mxCell id="edge_roomtypes_rooms" value="categorizes&lt;br&gt;[1 to 0..N]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284c7;strokeWidth=2;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_room_types" target="ent_rooms">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 3. HOTELS (1) to ROOMS (0..N) [Composite FK Protection] -->
+        <mxCell id="edge_hotels_rooms" value="owns &amp; locks room_no&lt;br&gt;[Composite FK: 1 to 0..N]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=2;dashed=1;fontColor=#b45309;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_hotels" target="ent_rooms">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="330" />
+              <mxPoint x="840" y="330" />
+              <mxPoint x="840" y="440" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 4. ROOM_TYPES (1) to ROOM_TYPE_AMENITIES (0..N) -->
+        <mxCell id="edge_rt_rta" value="1 to 0..N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284c7;strokeWidth=2;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_room_types" target="ent_rta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 5. AMENITIES (1) to ROOM_TYPE_AMENITIES (0..N) -->
+        <mxCell id="edge_amenities_rta" value="1 to 0..N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284c7;strokeWidth=2;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_amenities" target="ent_rta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 6. USERS (1) to RESERVATIONS (0..N) -->
+        <mxCell id="edge_users_resv" value="places&lt;br&gt;[1 to 0..N]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284c7;strokeWidth=2;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_users" target="ent_reservations">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 7. ROOMS (1) to RESERVATIONS (0..N) -->
+        <mxCell id="edge_rooms_resv" value="is booked in&lt;br&gt;[1 to 0..N]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284c7;strokeWidth=2;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_rooms" target="ent_reservations">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 8. RESERVATIONS (1) to PAYMENTS (0..1) -->
+        <mxCell id="edge_resv_payments" value="billed through&lt;br&gt;[Schema: 1 to 0..1]&lt;br&gt;(Txn: 1 to 1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284c7;strokeWidth=2;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_reservations" target="ent_payments">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="690" />
+              <mxPoint x="300" y="690" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 9. RESERVATIONS (1) to REVIEWS (0..1) -->
+        <mxCell id="edge_resv_reviews" value="yields review&lt;br&gt;[Schema: 1 to 0..1]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0284c7;strokeWidth=2;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ent_reservations" target="ent_reviews">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="690" />
+              <mxPoint x="690" y="690" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
