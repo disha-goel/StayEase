@@ -1,6 +1,6 @@
 # StayEase – Hotel Reservation Management System
 
-StayEase is a 3-tier College DBMS project built with React, Node.js (Express), and PostgreSQL. It demonstrates relational database normalization (3NF), database constraints, triggers, views, and temporal exclusion concurrency control using real hospitality workflows.
+StayEase is a DBMS project built with React, Node.js (Express), and PostgreSQL. It demonstrates relational database normalization (3NF), database constraints, triggers, views, and temporal exclusion concurrency control using real hospitality workflows.
 
 ---
 
